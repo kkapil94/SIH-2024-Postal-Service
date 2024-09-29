@@ -13,9 +13,11 @@ import {
   Pie,
   Cell,
 } from "recharts";
-import MapComponent from "./MapComponent";
+// import MapComponent from "./MapComponent";
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+
+
 
 const Dashboard = () => {
   const [satisfactionData, setSatisfactionData] = useState([]);
@@ -26,7 +28,7 @@ const Dashboard = () => {
     fetchData(timeRange);
   }, [timeRange]);
 
-  const fetchData = (range) => {
+  const fetchData = () => {
     const mockSatisfactionData = [
       { name: "Very Satisfied", value: 400 },
       { name: "Satisfied", value: 300 },

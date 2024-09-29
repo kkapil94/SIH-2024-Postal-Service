@@ -24,10 +24,19 @@ export default [
       'react-refresh': reactRefresh,
     },
     rules: {
+      // Use recommended rules from @eslint/js
       ...js.configs.recommended.rules,
-      ...react.configs.recommended.rules,
-      ...react.configs['jsx-runtime'].rules,
-      ...reactHooks.configs.recommended.rules,
+
+      // React rules
+      'react/jsx-uses-react': 'error',
+      'react/jsx-uses-vars': 'error',
+      // Add other React rules as needed
+
+      // React Hooks rules
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+
+      // Custom rules
       'react/jsx-no-target-blank': 'off',
       'react-refresh/only-export-components': [
         'warn',
