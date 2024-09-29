@@ -1,6 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaEnvelope, FaHome, FaSearch, FaMapMarkerAlt } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaHome,
+  FaSearch,
+  FaMapMarkerAlt,
+  FaLocationArrow,
+} from "react-icons/fa";
 
 const Navbar = () => {
   return (
@@ -33,6 +39,14 @@ const Navbar = () => {
               className="hover:text-indigo-200 transition duration-300 flex items-center"
             >
               <FaMapMarkerAlt className="mr-1" /> PIN Code Lookup
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/nearby-post-offices"
+              className="hover:text-indigo-200 transition duration-300 flex items-center"
+            >
+              <FaLocationArrow className="mr-1" /> Nearby Post Offices
             </Link>
           </li>
         </ul>

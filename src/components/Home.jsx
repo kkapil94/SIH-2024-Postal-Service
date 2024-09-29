@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaSearch, FaMapMarkerAlt, FaArrowRight } from "react-icons/fa";
+import {
+  FaSearch,
+  FaMapMarkerAlt,
+  FaArrowRight,
+  FaLocationArrow,
+} from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const Home = () => {
@@ -16,6 +21,12 @@ const Home = () => {
       title: "PIN Code Lookup",
       description: "Find the correct PIN code for any address",
       to: "/pincode-lookup",
+    },
+    {
+      icon: <FaLocationArrow className="text-indigo-500" />,
+      title: "Nearby Post Offices",
+      description: "Find post offices near a specific location",
+      to: "/nearby-post-offices",
     },
   ];
 
@@ -46,10 +57,10 @@ const Home = () => {
             transition={{ delay: 0.6, duration: 0.7 }}
           >
             <Link
-              to="/address-validator"
+              to="/nearby-post-offices"
               className="bg-white text-indigo-600 py-3 px-8 rounded-full text-lg font-semibold hover:bg-indigo-100 transition duration-300 inline-flex items-center"
             >
-              Try Address Validation
+              Try Nearby Post Ofices
               <FaArrowRight className="ml-2" />
             </Link>
           </motion.div>
@@ -61,7 +72,7 @@ const Home = () => {
           <h2 className="text-4xl font-bold text-center mb-16 text-gray-800">
             Our Services
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {services.map((service, index) => (
               <Link key={index} to={service.to}>
                 <motion.div

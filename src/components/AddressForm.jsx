@@ -19,9 +19,9 @@ const AddressForm = () => {
           ? {
               name: "ashish baraiya",
               street: "amarnath",
-              city: "Ahmedabad",
-              pinCode: "380001",
-              postOffice: "Ahmedabad G P O",
+              city: "Rajkot",
+              pinCode: "360002",
+              postOffice: "Rajkot Bhaktinagar",
             }
           : {
               name: "kapil khatri",
@@ -43,7 +43,7 @@ const AddressForm = () => {
       setIsScanning(true);
       // Simulate image processing delay
       setTimeout(() => {
-        const mockExtractedAddress = "ashish baraiya amarnath Ahmedabad 380001";
+        const mockExtractedAddress = "ashish baraiya amarnath Rajkot 360001";
         setFullAddress(mockExtractedAddress);
         setIsScanning(false);
       }, 2000);

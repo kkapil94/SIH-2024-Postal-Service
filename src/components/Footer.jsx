@@ -74,27 +74,16 @@ const Footer = () => {
                   PIN Code Lookup
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/nearby-post-offices"
+                  className="text-indigo-200 hover:text-white transition-colors duration-300"
+                >
+                  Nearby Post Offices
+                </Link>
+              </li>
             </ul>
           </div>
-          {/* <div>
-            <h4 className="text-xl font-semibold mb-4">Contact Info</h4>
-            <ul className="space-y-2">
-              <li className="flex items-center">
-                <FaMapMarkerAlt className="mr-2 text-indigo-300" />
-                <span className="text-indigo-200">
-                  1234 Postal Road, New Delhi, India
-                </span>
-              </li>
-              <li className="flex items-center">
-                <FaPhone className="mr-2 text-indigo-300" />
-                <span className="text-indigo-200">+91 11 2309 6055</span>
-              </li>
-              <li className="flex items-center">
-                <FaEnvelope className="mr-2 text-indigo-300" />
-                <span className="text-indigo-200">info@indiapost.gov.in</span>
-              </li>
-            </ul>
-          </div> */}
           <div>
             <h4 className="text-xl font-semibold mb-4">Newsletter</h4>
             <p className="text-indigo-200 mb-4">

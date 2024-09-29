@@ -130,11 +130,26 @@ const mockPinCodesP = {
   360002: {
     city: "Rajkot",
     postOffices: [
-      { name: "Rajkot Bhaktinagar", distance: 0 },
-      { name: "Rajkot Hudco", distance: 2.5 },
-      { name: "Rajkot Mavdi Plot", distance: 3.1 },
-      { name: "Rajkot Nandanvan Society", distance: 1.8 },
-      { name: "Rajkot Sadhuvasvani Road", distance: 2.2 },
+      {
+        name: "Rajkot Head Post Office",
+        distance: 3.0,
+      },
+      {
+        name: "Bhaktinagar Post Office",
+        distance: 4.4,
+      },
+      {
+        name: "Junction Post Office",
+        distance: 2.5,
+      },
+      {
+        name: "Rajkot Raiyaa Road Post Office",
+        distance: 5.7,
+      },
+      {
+        name: "Rajkot Mochi Bazar Sub Post Office",
+        distance: 2.1,
+      },
     ],
   },
 };
@@ -149,4 +164,116 @@ export const correctPinCodeP = (pinCode) => {
   return mockPinCodesP[pinCode] ? pinCode : "110001";
 };
 
-// Keep other functions like interpretAddress and validateAddress as they are
+const mockLocationData = {
+  "Mumbai Central": {
+    lat: 18.9711,
+    lng: 72.8197,
+    postOffices: [
+      { name: "Mumbai GPO", lat: 18.9373, lng: 72.8326, distance: 2.5 },
+      { name: "Dadar Post Office", lat: 19.0178, lng: 72.8478, distance: 3.8 },
+      { name: "Bandra Post Office", lat: 19.0596, lng: 72.8295, distance: 5.2 },
+      {
+        name: "Andheri Post Office",
+        lat: 19.1136,
+        lng: 72.8697,
+        distance: 7.6,
+      },
+      {
+        name: "Borivali Post Office",
+        lat: 19.2321,
+        lng: 72.8576,
+        distance: 12.3,
+      },
+    ],
+  },
+  "Rajkot Central": {
+    lat: 22.3104073,
+    lng: 70.8222275,
+    postOffices: [
+      {
+        name: "Rajkot Head Post Office",
+        lat: 22.2987175,
+        lng: 70.7948356,
+        distance: 3.0,
+      },
+      {
+        name: "Bhaktinagar Post Office",
+        lat: 22.3093122,
+        lng: 70.778893,
+        distance: 4.4,
+      },
+      {
+        name: "Junction Post Office",
+        lat: 22.3092688,
+        lng: 70.7969659,
+        distance: 2.5,
+      },
+      {
+        name: "Rajkot Raiyaa Road Post Office",
+        lat: 22.2894333,
+        lng: 70.7701963,
+        distance: 5.7,
+      },
+      {
+        name: "Rajkot Mochi Bazar Sub Post Office",
+        lat: 22.3026703,
+        lng: 70.8030864,
+        distance: 2.1,
+      },
+    ],
+  },
+  "Delhi Central": {
+    lat: 28.6139,
+    lng: 77.209,
+    postOffices: [
+      { name: "New Delhi GPO", lat: 28.6292, lng: 77.2197, distance: 1.8 },
+      {
+        name: "Connaught Place Post Office",
+        lat: 28.6315,
+        lng: 77.2167,
+        distance: 2.1,
+      },
+      {
+        name: "Lodhi Road Post Office",
+        lat: 28.5918,
+        lng: 77.2273,
+        distance: 3.5,
+      },
+      {
+        name: "Sarojini Nagar Post Office",
+        lat: 28.5776,
+        lng: 77.1969,
+        distance: 4.7,
+      },
+      {
+        name: "Karol Bagh Post Office",
+        lat: 28.6512,
+        lng: 77.1913,
+        distance: 5.9,
+      },
+    ],
+  },
+};
+
+export const getNearbyPostOfficesByLocation = (locationLink) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      // In a real application, you would parse the locationLink to determine the actual location
+      // For this mock, we'll randomly select a location from our mock data
+      const locations = Object.keys(mockLocationData);
+      const randomLocation =
+        locations[Math.floor(Math.random() * locations.length)];
+      const locationData = mockLocationData["Rajkot Central"];
+
+      resolve({
+        location: randomLocation,
+        lat: locationData.lat,
+        lng: locationData.lng,
+        postOffices: locationData.postOffices.map((po) => ({
+          ...po,
+          distance: parseFloat(po.distance.toFixed(1)), // Round to 1 decimal place
+        })),
+      });
+    }, 1500); // Simulating network delay
+  });
+};

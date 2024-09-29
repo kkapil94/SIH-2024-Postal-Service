@@ -5,6 +5,8 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import AddressForm from "./components/AddressForm";
 import PinCodeLookup from "./components/PinCodeLookup";
+import NearbyPostOffices from "./components/NearbyPostOffices";
+import Dashboard from "./components/Dashboard";
 
 const App = () => {
   return (
@@ -16,6 +18,11 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/address-validator" element={<AddressForm />} />
             <Route path="/pincode-lookup" element={<PinCodeLookup />} />
+            <Route
+              path="/nearby-post-offices"
+              element={<NearbyPostOffices />}
+            />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </main>
         <Footer />
